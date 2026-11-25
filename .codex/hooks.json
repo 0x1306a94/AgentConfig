@@ -1,0 +1,18 @@
+{
+  "description": "禁止读取敏感文件",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash|Read|Grep|Glob|PowerShell",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$(git rev-parse --show-toplevel)/hooks/deny-read.py\"",
+            "timeout": 10,
+            "statusMessage": "检查敏感文件读取"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "hooks": {
+    "beforeReadFile": [
+      {
+        "command": "python3 \"$(git rev-parse --show-toplevel)/hooks/deny-read.py\"",
+        "failClosed": true
+      }
+    ],
+    "beforeTabFileRead": [
+      {
+        "command": "python3 \"$(git rev-parse --show-toplevel)/hooks/deny-read.py\"",
+        "failClosed": true
+      }
+    ],
+    "beforeShellExecution": [
+      {
+        "command": "python3 \"$(git rev-parse --show-toplevel)/hooks/deny-read.py\"",
+        "failClosed": true
+      }
+    ],
+    "preToolUse": [
+      {
+        "command": "python3 \"$(git rev-parse --show-toplevel)/hooks/deny-read.py\"",
+        "matcher": "Read|Grep|Glob|Write",
+        "failClosed": true
+      }
+    ]
+  }
+}
